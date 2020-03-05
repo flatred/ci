@@ -2,7 +2,7 @@
 
 set -eux
 
-CITY="杭州"
+CITY="Hangzhou"
 LANGUAGE="zh-CN"
 FORMAT="%l:+%c+%t+%w+%m"
 UNIT="m"
@@ -12,4 +12,4 @@ curl \
   -H "Accept-Language: $LANGUAGE" \
   -H "User-Agent: $UA" \
   -o hangzhou.html \
-  "wttr.in/$CITY?format=$FORMAT"
+  wttr.in/$CITY?format=$FORMAT
