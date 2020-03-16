@@ -2,7 +2,7 @@ name: 'GitHub Actions Weather Bot'
 
 on:
   schedule:
-    - cron: '0 21 * * *'
+    - cron: '0 22 * * *'
 
 jobs:
   bot:
@@ -11,7 +11,7 @@ jobs:
       - name: 'Checkout codes'
         uses: actions/checkout@v1
       - name: 'Get Weather'
-        run: bash ./xiamen.sh
+        run: bash ./report.sh
       - name: 'Get Date'
         run: echo "::set-env name=REPORT_DATE::$(TZ=':Asia/Shanghai' date '+%Y-%m-%d %T')"
       - name: 'Send mail'
@@ -21,8 +21,8 @@ jobs:
           server_port: 465
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
-          subject: Xiamen Weather Report (${{env.REPORT_DATE}})
-          body: file://xiamen.html
-          to: 464218207@qq.com
+          subject: Weather Report (${{env.REPORT_DATE}})
+          body: file://report.html
+          to: 464218207@qq.com,flatred@163.com
           from: GitHub Actions
           content_type: text/html
