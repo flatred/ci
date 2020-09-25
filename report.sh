@@ -2,9 +2,7 @@
 
 set -eux
 
-CITY1="厦门"
-CITY2="深圳"
-CITY3="杭州"
+CITY="深圳"
 LANGUAGE="zh-CN"
 FORMAT="%l:+%c+%t+%w+%m"
 UNIT=m
@@ -14,18 +12,6 @@ curl -s \
   -w '\n' \
   -H "Accept-Language: $LANGUAGE" \
   -H "User-Agent: $UA" \
-  wttr.in/$CITY1?format=4\&$UNIT > report.html
-
-curl -s \
-  -w '\n' \
-  -H "Accept-Language: $LANGUAGE" \
-  -H "User-Agent: $UA" \
-  wttr.in/$CITY2?format=4\&$UNIT >> report.html
-
-curl -s \
-  -w '\n' \
-  -H "Accept-Language: $LANGUAGE" \
-  -H "User-Agent: $UA" \
-  wttr.in/$CITY3?format=4\&$UNIT >> report.html
+  wttr.in/$CITY?format=4\&$UNIT >> report.html
 
 cat report.html

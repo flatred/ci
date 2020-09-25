@@ -23,6 +23,6 @@ jobs:
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: Weather Report (${{env.REPORT_DATE}})
           body: file://report.html
-          to: flatred@163.com
+          to: 464218207@qq.com,flatred@163.com
           from: GitHub Actions
           content_type: text/html
